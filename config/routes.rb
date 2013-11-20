@@ -4,7 +4,8 @@ GitHelp::Application.routes.draw do
   # Routes for the Type_of_chore resource:
   # CREATE
 
-#asdfasfas
+#asdfasfasemoryisthestyleking
+
 
   get '/type_of_chores/new', controller: 'type_of_chores', action: 'new', as: 'new_type_of_chore'
   post '/type_of_chores', controller: 'type_of_chores', action: 'create', as: 'type_of_chores'
