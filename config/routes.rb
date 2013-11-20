@@ -5,8 +5,13 @@ GitHelp::Application.routes.draw do
   # CREATE
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 #asdfasfasemoryisthestyleking
+=======
+#asdfasfasemoryisthestyleking
+
+>>>>>>> 4b6f2e0b0566d90ee13629a152f619d65de07212
 
 
 >>>>>>> 4b6f2e0b0566d90ee13629a152f619d65de07212
