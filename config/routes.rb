@@ -1,4 +1,6 @@
 GitHelp::Application.routes.draw do
+  get '/home', controller: 'landing', action: 'home', as: 'root'
+
   # Routes for the Type_of_chore resource:
   # CREATE
   get '/type_of_chores/new', controller: 'type_of_chores', action: 'new', as: 'new_type_of_chore'
