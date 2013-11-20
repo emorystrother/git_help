@@ -1,5 +1,5 @@
 GitHelp::Application.routes.draw do
-  get '/home', controller: 'landing', action: 'home', as: 'root'
+  get '/', controller: 'landing', action: 'home', as: 'root'
 
   # Routes for the Type_of_chore resource:
   # CREATE
