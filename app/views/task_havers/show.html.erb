@@ -22,3 +22,17 @@
   <dd><%= @task_haver.cell_phone %></dd>
 
 </dl>
+
+<h3>Active</h3>
+<ul>
+  <% @task_haver.chores.where(:active => true).each do |chore| %>
+    <li><%= chore.description_of_chore %></li>
+  <% end %>
+</ul>
+
+<h3>Inactive</h3>
+<ul>
+  <% @task_haver.chores.where(:active => false).each do |chore| %>
+    <li><%= chore.description_of_chore %></li>
+  <% end %>
+</ul>

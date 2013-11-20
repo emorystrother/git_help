@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 20131120165925) do
     t.float    "ask_price"
     t.float    "price"
     t.datetime "complete_by"
-    t.boolean  "active"
+    t.boolean  "active",               default: false
   end
 
   create_table "students", force: true do |t|

@@ -10,7 +10,7 @@ class CreateChores < ActiveRecord::Migration
       t.float :ask_price
       t.float :price
       t.datetime :complete_by
-      t.boolean :active
+      t.boolean :active, :default => false
     end
   end
 end
