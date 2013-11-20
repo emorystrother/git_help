@@ -1,0 +1,81 @@
+<div class="page-header">
+  <h1>Editing Chore #<%= @chore.id %></h1>
+</div>
+
+<%= form_tag(chore_url(@chore), method: 'patch', class: 'form-horizontal') do %>
+  <div class="form-group">
+    <%= label_tag :task_haver_id, nil, class: 'col-md-2 control-label' %>
+    <div class="col-md-6">
+      <%= text_field_tag :task_haver_id, @chore.task_haver_id, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= label_tag :student_id, nil, class: 'col-md-2 control-label' %>
+    <div class="col-md-6">
+      <%= text_field_tag :student_id, @chore.student_id, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= label_tag :type_of_chore_id, nil, class: 'col-md-2 control-label' %>
+    <div class="col-md-6">
+      <%= text_field_tag :type_of_chore_id, @chore.type_of_chore_id, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= label_tag :description_of_chore, nil, class: 'col-md-2 control-label' %>
+    <div class="col-md-6">
+      <%= text_field_tag :description_of_chore, @chore.description_of_chore, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= label_tag :review_of_student, nil, class: 'col-md-2 control-label' %>
+    <div class="col-md-6">
+      <%= text_field_tag :review_of_student, @chore.review_of_student, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= label_tag :review_of_task_haver, nil, class: 'col-md-2 control-label' %>
+    <div class="col-md-6">
+      <%= text_field_tag :review_of_task_haver, @chore.review_of_task_haver, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= label_tag :ask_price, nil, class: 'col-md-2 control-label' %>
+    <div class="col-md-6">
+      <%= text_field_tag :ask_price, @chore.ask_price, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= label_tag :price, nil, class: 'col-md-2 control-label' %>
+    <div class="col-md-6">
+      <%= text_field_tag :price, @chore.price, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= label_tag :complete_by, nil, class: 'col-md-2 control-label' %>
+    <div class="col-md-6">
+      <%= text_field_tag :complete_by, @chore.complete_by, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= label_tag :active, nil, class: 'col-md-2 control-label' %>
+    <div class="col-md-6">
+      <%= check_box_tag :active, 1, @chore.active? %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-md-offset-2 col-md-6">
+      <%= submit_tag "Update Chore", class: 'btn btn-primary' %>
+    </div>
+  </div>
+<% end %>

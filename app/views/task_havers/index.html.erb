@@ -1,0 +1,38 @@
+<div class="page-header">
+  <h1>Task havers</h1>
+</div>
+
+<p><%= link_to 'Add a New Task Haver', new_task_haver_url, class: 'btn btn-primary' %></p>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Address</th>
+      <th>Image</th>
+      <th>Email</th>
+      <th>Cell phone</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @task_havers.each do |task_haver| %>
+      <tr>
+        <td><%= task_haver.first_name %></td>
+        <td><%= task_haver.last_name %></td>
+        <td><%= task_haver.address %></td>
+        <td><%= task_haver.image %></td>
+        <td><%= task_haver.email %></td>
+        <td><%= task_haver.cell_phone %></td>
+        <td><%= link_to '<i class="fa fa-search-plus"></i>'.html_safe, task_haver_url(task_haver), class: 'btn btn-primary' %></td>
+        <td><%= link_to '<i class="fa fa-edit"></i>'.html_safe, edit_task_haver_url(task_haver), class: 'btn btn-warning' %></td>
+        <td><%= link_to '<i class="fa fa-trash-o"></i>'.html_safe, task_haver_url(task_haver), method: 'delete', data: { confirm: "Do you really want to delete this task_haver?" }, class: 'btn btn-danger' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

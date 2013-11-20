@@ -1,0 +1,36 @@
+<div class="page-header">
+  <h1>Chore #<%= @chore.id %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Task haver</dt>
+  <dd><%= @chore.task_haver_id %></dd>
+
+  <dt>Student</dt>
+  <dd><%= @chore.student_id %></dd>
+
+  <dt>Type of chore</dt>
+  <dd><%= @chore.type_of_chore_id %></dd>
+
+  <dt>Description of chore</dt>
+  <dd><%= @chore.description_of_chore %></dd>
+
+  <dt>Review of student</dt>
+  <dd><%= @chore.review_of_student %></dd>
+
+  <dt>Review of task haver</dt>
+  <dd><%= @chore.review_of_task_haver %></dd>
+
+  <dt>Ask price</dt>
+  <dd><%= @chore.ask_price %></dd>
+
+  <dt>Price</dt>
+  <dd><%= @chore.price %></dd>
+
+  <dt>Complete by</dt>
+  <dd><%= @chore.complete_by %></dd>
+
+  <dt>Active</dt>
+  <dd><%= @chore.active? %></dd>
+
+</dl>
