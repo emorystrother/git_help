@@ -2,6 +2,10 @@
   <h1>Chores</h1>
 </div>
 
+<!-- .offset(3).limit(3) -->
+<!-- how to get things into params hash : form, URL, querry string -->
+<!-- (Role.count/5.ceil.times. do |page|)
+link_to "Page #{page + 1}", "/roles?page=#{page + 1}"% %> -->
 <p><%= link_to 'Add a New Chore', new_chore_url, class: 'btn btn-primary' %></p>
 
 <table class="table table-hover">

@@ -2,6 +2,12 @@
   <h1>New Chore</h1>
 </div>
 
+<!-- complete below from first half video -->
+# <%= if @chore.errors.any? %>
+# <%= @chore.errors.full_messages.each do |chore| %>
+<!-- remember you also have to add the @chore incident variable to the New controller -->
+<!-- complete above from first half video -->
+
 <%= form_tag(chores_url, method: 'post', class: 'form-horizontal') do %>
   <div class="form-group">
     <%= label_tag :task_haver_id, nil, class: 'col-md-2 control-label' %>

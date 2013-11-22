@@ -1,7 +1,20 @@
 class ChoresController < ApplicationController
 
+  # You can store information on the users computer using cookies.
+  # rails defined hash: cookies[:user] = params[:first_name]
+  # Use gem 'devise' to do login well. Lots of good fuctionality! after install run the generator
+    # follow directions!
+    # rails generate devise:install (then read instructions)
+    # allows for current_user so you can ask for pre-populating .first_name, etc
+  # Pattern to dry-up controller code that's used in a lot of places: you can def something such as @picture = Picture.find(params[:id])
+    #even more powerfully before_action(:find_picture, :only =>[:show,:edit,:update])
+    #you can do these in any order
+    #with devise use authorize_user! to allow exception on the sign-in page.
+    # use this to authenticate ADMIN!!
+
   def index
     @chores = Chore.all
+    # change to chore_number = params[page]
   end
 
   def show
@@ -27,6 +40,7 @@ class ChoresController < ApplicationController
     if @chore.save
       redirect_to chores_url, notice: "Chore created successfully."
     else
+
       render 'new'
     end
   end
