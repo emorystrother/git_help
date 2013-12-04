@@ -35,7 +35,14 @@ link_to "Page #{page + 1}", "/roles?page=#{page + 1}"% %> -->
     <% @chores.each do |chore| %>
       <tr>
         <td><%= chore.task_haver.full_name %></td>
-        <td><%= chore.student_id %></td>
+        <td>
+          <% if chore.student != nil %>
+            <%= chore.student.full_name %>
+          <% else %>
+            None Assigned
+          <% end %>
+        </td>
+        <td><%=  %></td>
         <td><%= chore.type_of_chore_id %></td>
         <td><%= chore.description_of_chore %></td>
         <td><%= chore.review_of_student %></td>
