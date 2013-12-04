@@ -3,12 +3,15 @@
 </div>
 
 <!-- complete below from first half video -->
-# <%= if @chore.errors.any? %>
-# <%= @chore.errors.full_messages.each do |chore| %>
-<!-- remember you also have to add the @chore incident variable to the New controller -->
-<!-- complete above from first half video -->
+
+
+
+<!-- remember you also have to add the @chore incident variable to the New controller
+complete above from first half video -->
 
 <%= form_tag(chores_url, method: 'post', class: 'form-horizontal') do %>
+
+
   <div class="form-group">
     <%= label_tag :task_haver_id, nil, class: 'col-md-2 control-label' %>
     <div class="col-md-6">
@@ -16,22 +19,29 @@
     </div>
   </div>
 
+
+<!--
   <div class="form-group">
     <%= label_tag :student_id, nil, class: 'col-md-2 control-label' %>
     <div class="col-md-6">
       <%= text_field_tag :student_id, nil, class: 'form-control' %>
     </div>
+  </div> -->
+
+ <div class="form-group">
+    <%= label_tag :type_of_chore_id, nil, class: 'col-md-2 control-label' %>
+    <div class="col-md-6">
+      <select name="type_of_chore_id" class="form-control">
+        <% TypeOfChore.order(:name).each do |choretype| %>
+
+          <option value="<%= choretype.id %>">
+            <%= choretype.name %> <%= choretype.name %>
+          </option>
+
+        <% end %>
+      </select>
+    </div>
   </div>
-
-<div class="form-group">
-
-
-
-<%= select_tag("type_of_chore_id", options_from_collection_for_select(TypeOfChore.all, :id, "name")) %>
-
-
-  </div>
- <div>
 
   <div class="form-group">
     <%= label_tag :description_of_chore, nil, class: 'col-md-2 control-label' %>
@@ -40,19 +50,19 @@
     </div>
   </div>
 
-  <div class="form-group">
+  <!-- <div class="form-group">
     <%= label_tag :review_of_student, nil, class: 'col-md-2 control-label' %>
     <div class="col-md-6">
       <%= text_field_tag :review_of_student, nil, class: 'form-control' %>
     </div>
-  </div>
+  </div> -->
 
-  <div class="form-group">
+ <!--  <div class="form-group">
     <%= label_tag :review_of_task_haver, nil, class: 'col-md-2 control-label' %>
     <div class="col-md-6">
       <%= text_field_tag :review_of_task_haver, nil, class: 'form-control' %>
     </div>
-  </div>
+  </div> -->
 
   <div class="form-group">
     <%= label_tag :ask_price, nil, class: 'col-md-2 control-label' %>
@@ -61,12 +71,12 @@
     </div>
   </div>
 
-  <div class="form-group">
+<!--   <div class="form-group">
     <%= label_tag :price, nil, class: 'col-md-2 control-label' %>
     <div class="col-md-6">
       <%= text_field_tag :price, nil, class: 'form-control' %>
     </div>
-  </div>
+  </div> -->
 
   <div class="form-group">
     <%= label_tag :complete_by, nil, class: 'col-md-2 control-label' %>
@@ -75,12 +85,12 @@
     </div>
   </div>
 
-  <div class="form-group">
+ <!--  <div class="form-group">
     <%= label_tag :active, nil, class: 'col-md-2 control-label' %>
     <div class="col-md-6">
       <%= check_box_tag :active %>
     </div>
-  </div>
+  </div> -->
 
   <div class="form-group">
     <div class="col-md-offset-2 col-md-6">

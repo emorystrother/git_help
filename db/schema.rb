@@ -11,7 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131120165925) do
+ActiveRecord::Schema.define(version: 20131204164447) do
+
+  create_table "chore_type_histories", force: true do |t|
+    t.integer "student_id"
+    t.integer "type_of_chore_id"
+  end
 
   create_table "chores", force: true do |t|
     t.string   "task_haver_id"

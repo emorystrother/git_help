@@ -3,7 +3,11 @@ class Chore < ActiveRecord::Base
 # has_many :roles
 # has_many :actors, :through => roles
 
-  validates(:type_of_chore_id, { presence => true })
+ belongs_to :task_haver
+ belongs_to :student
+ belongs_to :type_of_chore
+
+  validates(:type_of_chore_id, :presence => true)
   # validates :director_id, :presence => true, :numbericality => { only_integer => true }
   # :numericality => {only integer: true} is another argument for this
   # validates :year, :presence => true, numbericality: { only_integer: tr} :uniqueness = > true

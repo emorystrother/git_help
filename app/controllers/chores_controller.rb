@@ -14,6 +14,7 @@ class ChoresController < ApplicationController
 
   def index
     @chores = Chore.all
+    Chore.new.student_id = 1
     # change to chore_number = params[page]
   end
 
@@ -22,6 +23,7 @@ class ChoresController < ApplicationController
   end
 
   def new
+    @chore = Chore.new
   end
 
   def create
