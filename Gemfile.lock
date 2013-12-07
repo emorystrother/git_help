@@ -35,6 +35,8 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.3)
+    devise (1.1.rc0)
+      warden (~> 0.10.3)
     erubis (2.7.0)
     execjs (2.0.2)
     hike (1.2.3)
@@ -104,12 +106,15 @@ GEM
     uglifier (2.3.1)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    warden (0.10.7)
+      rack (>= 1.0.0)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   coffee-rails (~> 4.0.0)
+  devise (= 1.1.rc0)
   jbuilder (~> 1.2)
   jquery-rails
   rails (= 4.0.1)
