@@ -35,10 +35,10 @@ group :doc do
 
 end
 
-gem 'devise', '1.1.rc0'
+gem 'devise'
 
 # Use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.1.2'
+#gem 'bcrypt-ruby', '~> 3.1.2'
 
 # Use unicorn as the app server
 # gem 'unicorn'
