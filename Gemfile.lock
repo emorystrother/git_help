@@ -36,17 +36,12 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.3)
-<<<<<<< HEAD
     devise (3.2.2)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.1)
       railties (>= 3.2.6, < 5)
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
-=======
-    devise (1.1.rc0)
-      warden (~> 0.10.3)
->>>>>>> dd3ad7ac2e1ae458fadf28addd9a794a25866dd0
     erubis (2.7.0)
     execjs (2.0.2)
     hike (1.2.3)
@@ -117,21 +112,16 @@ GEM
     uglifier (2.3.2)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
-<<<<<<< HEAD
     warden (1.2.3)
       rack (>= 1.0)
-=======
-    warden (0.10.7)
-      rack (>= 1.0.0)
->>>>>>> dd3ad7ac2e1ae458fadf28addd9a794a25866dd0
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   coffee-rails (~> 4.0.0)
-<<<<<<< HEAD
   devise
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
   devise
@@ -139,6 +129,8 @@ DEPENDENCIES
   devise (= 1.1.rc0)
 >>>>>>> dd3ad7ac2e1ae458fadf28addd9a794a25866dd0
 >>>>>>> eba772a5aff19288c853997947ce9de0cc111373
+=======
+>>>>>>> 4181b18a520497b359ef6ad1b2e3e9b55522677c
   jbuilder (~> 1.2)
   jquery-rails
   rails (= 4.0.1)

@@ -1,7 +1,10 @@
 source 'https://rubygems.org'
 
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.1'
+
+gem 'devise'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
@@ -28,35 +31,3 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 
 gem 'starter_generators'
-
-gem 'devise'
-
-group :doc do
-  # bundle exec rake doc:rails generates the API under doc/api.
-  gem 'sdoc', require: false
-
-end
-<<<<<<< HEAD
-
-#gem 'devise'
-
-=======
-<<<<<<< HEAD
-#gem 'devise', '1.1.rc0'
->>>>>>> eba772a5aff19288c853997947ce9de0cc111373
-# Use ActiveModel has_secure_password
-#gem 'bcrypt-ruby', '~> 3.1.2'
-
-# Use unicorn as the app server
-# gem 'unicorn'
-=======
-#    devise (1.1.rc0)
-#     warden (~> 0.10.3)
-#>>>>>>> dd3ad7ac2e1ae458fadf28addd9a794a25866dd0
-
-# Use Capistrano for deployment
-# gem 'capistrano', group: :development
-    i18n (0.6.9)
-    jbuilder (1.5.3)
-# Use debugger
-# gem 'debugger', group: [:development, :test]
