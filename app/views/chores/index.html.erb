@@ -54,7 +54,7 @@ link_to "Page #{page + 1}", "/roles?page=#{page + 1}"% %> -->
         <td>
           <%= form_tag(chore_url(chore), method: 'patch', class: 'form-horizontal') do %>
                 <%= hidden_field_tag :task_haver_id, chore.task_haver_id %>
-                <%= select_tag :student_id, options_from_collection_for_select(Student.all, :id, :first_name, chore.student_id) %>
+                <%= select_tag :student_id, options_from_collection_for_select(Student.all, :id, :full_name, chore.student_id) %>
                 <%= hidden_field_tag :type_of_chore_id, chore.type_of_chore_id %>
                 <%= hidden_field_tag :description_of_chore, chore.description_of_chore %>
                 <%= hidden_field_tag :review_of_student, chore.review_of_student %>
@@ -63,6 +63,7 @@ link_to "Page #{page + 1}", "/roles?page=#{page + 1}"% %> -->
                 <%= hidden_field_tag :price, chore.price %>
                 <%= hidden_field_tag :complete_by, chore.complete_by %>
                 <%= hidden_field_tag :active, true %>
+
                 <%= submit_tag "Claim", class: 'btn btn-primary' %>
           <% end %>
         </td>
