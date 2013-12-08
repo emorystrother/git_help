@@ -1,6 +1,9 @@
 GitHelp::Application.routes.draw do
 
   devise_for :students
+  # get '/', controller: 'landing', action: 'home', as: 'root'
+  root 'landing#home'
+
   # Routes for the Chore_type_history resource:
   # CREATE
   get '/chore_type_histories/new', controller: 'chore_type_histories', action: 'new', as: 'new_chore_type_history'
@@ -17,8 +20,6 @@ GitHelp::Application.routes.draw do
   # DELETE
   delete '/chore_type_histories/:id', controller: 'chore_type_histories', action: 'destroy'
   #------------------------------
-
-  get '/', controller: 'landing', action: 'home', as: 'root'
 
   # Routes for the Type_of_chore resource:
   # CREATE
