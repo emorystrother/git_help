@@ -36,17 +36,21 @@ group :doc do
   gem 'sdoc', require: false
 
 end
-
+<<<<<<< HEAD
 gem 'devise', '1.1.rc0'
-
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 
 # Use unicorn as the app server
 # gem 'unicorn'
+=======
+    devise (1.1.rc0)
+      warden (~> 0.10.3)
+>>>>>>> dd3ad7ac2e1ae458fadf28addd9a794a25866dd0
 
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
-
+    i18n (0.6.9)
+    jbuilder (1.5.3)
 # Use debugger
 # gem 'debugger', group: [:development, :test]
