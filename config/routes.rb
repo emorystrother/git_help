@@ -1,4 +1,6 @@
 GitHelp::Application.routes.draw do
+
+  devise_for :students
   # Routes for the Chore_type_history resource:
   # CREATE
   get '/chore_type_histories/new', controller: 'chore_type_histories', action: 'new', as: 'new_chore_type_history'
@@ -86,6 +88,7 @@ GitHelp::Application.routes.draw do
   # DELETE
   delete '/chores/:id', controller: 'chores', action: 'destroy'
   #------------------------------
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
