@@ -1,12 +1,12 @@
 <div class="page-header">
-  <h1>Editing Chore #<%= @chore.id %></h1>
+  <h1>Editing Chore: <%= @chore.type_of_chore.name%> (<%= @chore.student.full_name %>)</h1>
 </div>
 
 <%= form_tag(chore_url(@chore), method: 'patch', class: 'form-horizontal') do %>
   <div class="form-group">
     <%= label_tag :task_haver_id, nil, class: 'col-md-2 control-label' %>
     <div class="col-md-6">
-      <%= select_tag :task_haver_id, options_from_collection_for_select(TaskHaver.all,   :id, :full_name, @chore.task_haver.full_name), class: 'form-control' %>
+      <%= select_tag :task_haver_id, options_from_collection_for_select(TaskHaver.all,:id,:full_name, @chore.task_haver.full_name), class: 'form-control' %>
     </div>
   </div>
 
@@ -15,7 +15,7 @@
     <%= label_tag :student_id, nil, class: 'col-md-2 control-label' %>
     <div class="col-md-6">
       <% if @chore.student != nil %>
-          <%= text_field_tag :student_id, @chore.student_id, class: 'form-control' %>
+          <%= text_field_tag :student_id, @chore.student.full_name, disabled: true, class: 'form-control' %>
           <% else %>
             None Assigned
           <% end %>
@@ -44,12 +44,6 @@
     </div>
   </div>
 
-  <div class="form-group">
-    <%= label_tag :review_of_task_haver, nil, class: 'col-md-2 control-label' %>
-    <div class="col-md-6">
-      <%= text_field_tag :review_of_task_haver, @chore.review_of_task_haver, class: 'form-control' %>
-    </div>
-  </div>
 
   <div class="form-group">
     <%= label_tag :ask_price, nil, class: 'col-md-2 control-label' %>
@@ -67,13 +61,18 @@
 
   <div class="form-group">
     <%= label_tag :complete_by, nil, class: 'col-md-2 control-label' %>
-    <div class="col-md-6">
-      <%= text_field_tag :complete_by, @chore.complete_by, class: 'form-control' %>
+   <div class="col-md-6">
+   <% if @chore.complete_by != nil %>
+      <%= text_field_tag :complete_by, @chore.complete_by.strftime('%Y/%m/%d'), class: 'form-control' %>
+    <% else %>
+      <%= text_field_tag :complete_by, nil, placeholder: "YYYY/MM/DD
+      ", class: 'form-control' %>
+    <% end %>
     </div>
   </div>
 
   <div class="form-group">
-    <%= label_tag :active, nil, class: 'col-md-2 control-label' %>
+    <%= label_tag :active, 'Accepted', class: 'col-md-2 control-label' %>
     <div class="col-md-6">
       <%= check_box_tag :active, 1, @chore.active? %>
     </div>

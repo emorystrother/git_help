@@ -11,7 +11,7 @@ link_to "Page #{page + 1}", "/roles?page=#{page + 1}"% %> -->
 
 
 
-<% if 5 == 4 %>
+<% if 5 == 5 %>
 
 <!-- Top section is for being logged in as Student -->
 
@@ -36,7 +36,8 @@ link_to "Page #{page + 1}", "/roles?page=#{page + 1}"% %> -->
           <td><%= chore.type_of_chore.name %></td>
           <td><%= chore.description_of_chore %></td>
           <td><%= chore.ask_price %></td>
-          <td><%= chore.complete_by %></td>
+          <td><%= chore.complete_by.strftime('%m/%d/%y') %></td>
+
           <td>
             <% if chore.student != nil %>
               <%= chore.student.full_name %>
@@ -44,7 +45,8 @@ link_to "Page #{page + 1}", "/roles?page=#{page + 1}"% %> -->
               OPEN!
             <% end %>
           </td>
-          <td><%= chore.task_haver_id %></td>
+
+          <td><%= chore.task_haver.full_name %></td>
           <td>
             <%= form_tag(chore_url(chore), method: 'patch', class: 'form-horizontal') do %>
                   <%= hidden_field_tag :task_haver_id, chore.task_haver_id %>
@@ -57,7 +59,12 @@ link_to "Page #{page + 1}", "/roles?page=#{page + 1}"% %> -->
                   <%= hidden_field_tag :price, chore.ask_price %>
                   <%= hidden_field_tag :complete_by, chore.complete_by %>
                   <%= hidden_field_tag :active, true %>
-                  <%= submit_tag "Claim", class: 'btn btn-primary' %>
+                  <% if chore.student != nil %>
+                    <%= submit_tag "Claim", disabled: true, class: 'btn btn-primary' %>
+                    <% else %>
+                      <%= submit_tag "Claim", class: 'btn btn-primary' %>
+                    <% end %>
+
             <% end %>
           </td>
 
@@ -95,7 +102,7 @@ link_to "Page #{page + 1}", "/roles?page=#{page + 1}"% %> -->
     <tbody>
       <% @chores.each do |chore| %>
         <tr>
-          <td><%= chore.task_haver %></td>
+          <td><%= chore.task_haver.full_name %></td>
           <td>
             <% if chore.student != nil %>
               <%= chore.student.full_name %>
@@ -104,17 +111,17 @@ link_to "Page #{page + 1}", "/roles?page=#{page + 1}"% %> -->
             <% end %>
           </td>
 
-          <td><%= chore.type_of_chore_id %></td>
+          <td><%= chore.type_of_chore.name %></td>
           <td><%= chore.description_of_chore %></td>
           <td><%= chore.review_of_student %></td>
           <td><%= chore.review_of_task_haver %></td>
           <td><%= chore.ask_price %></td>
           <td><%= chore.price %></td>
-          <td><%= chore.complete_by %></td>
+          <td><%= chore.complete_by.strftime('%m/%d/%y') %></td>
           <td><%= chore.active? %></td>
           <td>
             <%= form_tag(chore_url(chore), method: 'patch', class: 'form-horizontal') do %>
-                  <%= hidden_field_tag :task_haver_id, chore.task_haver_id %>
+                  <%= hidden_field_tag :task_haver_id, chore.task_haver.first_name %>
                   <%= select_tag :student_id, options_from_collection_for_select(Student.all, :id, :first_name, chore.student_id) %>
                   <%= hidden_field_tag :type_of_chore_id, chore.type_of_chore_id %>
                   <%= hidden_field_tag :description_of_chore, chore.description_of_chore %>
@@ -129,7 +136,12 @@ link_to "Page #{page + 1}", "/roles?page=#{page + 1}"% %> -->
           </td>
 
           <td><%= link_to '<i class="fa fa-search-plus"></i>'.html_safe, chore_url(chore), class: 'btn btn-primary' %></td>
-          <td><%= link_to '<i class="fa fa-edit"></i>'.html_safe, edit_chore_url(chore), class: 'btn btn-warning' %></td>
+          <% if 5 == 5 %> <!-- if currentuser.id = chore.task_haver.id -->
+            <td><%= link_to '<i class="fa fa-edit"></i>'.html_safe, edit_chore_url(chore), class: 'btn btn-warning' %></td>
+          <% else %>
+              <td> Edit Disabled
+          <% end %>
+
           <td><%= link_to '<i class="fa fa-trash-o"></i>'.html_safe, chore_url(chore), method: 'delete', data: { confirm: "Do you really want to delete this chore?" }, class: 'btn btn-danger' %></td>
         </tr>
       <% end %>

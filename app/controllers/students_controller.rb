@@ -23,7 +23,7 @@ class StudentsController < ApplicationController
     @student.student_id = params[:student_id]
 
     if @student.save
-      redirect_to students_url, notice: "Student created successfully."
+      redirect_to chores_url, notice: "Student created successfully."
     else
       render 'new'
     end
