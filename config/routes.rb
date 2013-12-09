@@ -1,7 +1,9 @@
 GitHelp::Application.routes.draw do
+  devise_for :students
   # Routes for the Chore_type_history resource:
   # CREATE
-  #get '/chore_type_histories/new', controller: 'chore_type_histories', action: 'new', as: 'new_chore_type_history'
+
+  get '/chore_type_histories/new', controller: 'chore_type_histories', action: 'new', as: 'new_chore_type_history'
   post '/chore_type_histories', controller: 'chore_type_histories', action: 'create', as: 'chore_type_histories'
 
   # READ
