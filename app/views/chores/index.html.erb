@@ -11,7 +11,7 @@ link_to "Page #{page + 1}", "/roles?page=#{page + 1}"% %> -->
 
 
 
-<% if student_signed_in? %>
+<% if 5 == 4 %>
 
 <!-- Top section is for being logged in as Student -->
 
@@ -73,7 +73,7 @@ link_to "Page #{page + 1}", "/roles?page=#{page + 1}"% %> -->
       <% end %>
     </tbody>
   </table>
-  <% elsif %>
+  <% else %>
 
   <!-- Top section is for being logged in as Task_Haver -->
 
@@ -147,6 +147,5 @@ link_to "Page #{page + 1}", "/roles?page=#{page + 1}"% %> -->
       <% end %>
     </tbody>
   </table>
-<% else %>
-  Please sign in!!!
+
   <% end %>

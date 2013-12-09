@@ -46,18 +46,15 @@
         <% if student_signed_in? %>
           <li><%= link_to current_student.email, edit_student_url(current_student.id) %></li>
           <li><%= link_to "Sign Out", destroy_student_session_path, :method => 'delete' %></li>
-
         <% elsif task_haver_signed_in? %>
-          <li><%= link_to current_task_haver.email, edit_task_haver_url(current_task_haver.id) %></li>
-          <li><%= link_to "Sign Out", destroy_task_haver_session_path, :method => 'delete' %></li>
 
         <% else %>
           <li><%= link_to "Sign Up As Student", new_student_registration_path %></li>
           <li><%= link_to "Sign In As Student", new_student_session_path %></li>
-          <li><%= link_to "Sign Up As TaskHaver", new_task_haver_session_path %></li>
+          <li><%= link_to "Sign In As TaskHaver", new_task_haver_session_path %></li>
           <li><%= link_to "Sign In As TaskHaver", new_task_haver_session_path %></li>
         <% end %>
-
+        <li><a href="#">About</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </nav>
