@@ -44,7 +44,7 @@ link_to "Page #{page + 1}", "/roles?page=#{page + 1}"% %> -->
               OPEN!
             <% end %>
           </td>
-          <td><%= chore.task_haver.full_name %></td>
+          <td><%= chore.task_haver_id %></td>
           <td>
             <%= form_tag(chore_url(chore), method: 'patch', class: 'form-horizontal') do %>
                   <%= hidden_field_tag :task_haver_id, chore.task_haver_id %>
