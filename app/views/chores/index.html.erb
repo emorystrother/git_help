@@ -95,7 +95,7 @@ link_to "Page #{page + 1}", "/roles?page=#{page + 1}"% %> -->
     <tbody>
       <% @chores.each do |chore| %>
         <tr>
-          <td><%= chore.task_haver.full_name %></td>
+          <td><%= chore.task_haver %></td>
           <td>
             <% if chore.student != nil %>
               <%= chore.student.full_name %>
