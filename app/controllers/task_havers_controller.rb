@@ -9,7 +9,7 @@ class TaskHaversController < ApplicationController
   end
 
   def new
-    @task_havery = TaskHaver.new
+    @task_haver = TaskHaver.new
   end
 
 
