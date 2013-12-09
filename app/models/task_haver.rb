@@ -13,11 +13,11 @@ def full_name
   return first_name + " " + last_name
 end
 
-validates :first_name, :presence => true
-validates :last_name, :presence => true
-validates :address, :presence => true
+#validates :first_name, :presence => true
+#validates :last_name, :presence => true
+#validates :address, :presence => true
 validates :email, :presence => true,:uniqueness => true
-validates :cell_phone, :presence => true, :numericality => true, :uniqueness => true
+#validates :cell_phone, :presence => true, :numericality => true, :uniqueness => true
 
 end
 
