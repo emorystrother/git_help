@@ -6,21 +6,27 @@
   <div class="form-group">
     <%= label_tag :task_haver_id, nil, class: 'col-md-2 control-label' %>
     <div class="col-md-6">
-      <%= text_field_tag :task_haver_id, @chore.task_haver.full_name, class: 'form-control' %>
+      <%= select_tag :task_haver_id, options_from_collection_for_select(TaskHaver.all, :id, :full_name, @chore.task_haver.full_name), class: 'form-control' %>
     </div>
   </div>
 
-  <!-- <div class="form-group">
+  <div class="form-group">
+
     <%= label_tag :student_id, nil, class: 'col-md-2 control-label' %>
     <div class="col-md-6">
-      <%= text_field_tag :student_id, @chore.student_id, class: 'form-control' %>
+      <% if @chore.student != nil %>
+          <%= text_field_tag :student_id, @chore.student_id, class: 'form-control' %>
+          <% else %>
+            None Assigned
+          <% end %>
+
     </div>
-  </div> -->
+  </div>
 
   <div class="form-group">
     <%= label_tag :type_of_chore_id, nil, class: 'col-md-2 control-label' %>
     <div class="col-md-6">
-      <%= text_field_tag :type_of_chore_id, @chore.type_of_chore_id, class: 'form-control' %>
+     <%= select_tag :type_of_chore_id, options_from_collection_for_select(TypeOfChore.all, :id, :name, @chore.type_of_chore.name), class: 'form-control' %>
     </div>
   </div>
 

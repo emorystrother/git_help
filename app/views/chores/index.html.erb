@@ -1,3 +1,5 @@
+<!-- added 'break' to allow us to simulate future seperation by user type -->
+
 <div class="page-header">
   <h1>Chores</h1>
 </div>
@@ -9,69 +11,130 @@ link_to "Page #{page + 1}", "/roles?page=#{page + 1}"% %> -->
 
 
 
+<% if 5 == 4 %>
+
+<!-- Top section is for being logged in as Student -->
+
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Type of chore</th>
+        <th>Description of chore</th>
+        <th>Ask price</th>
+        <th>Complete by</th>
+        <th>Claimed this job</th>
+        <th>Task haver</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @chores.each do |chore| %>
+        <tr>
+          <td><%= chore.type_of_chore.name %></td>
+          <td><%= chore.description_of_chore %></td>
+          <td><%= chore.ask_price %></td>
+          <td><%= chore.complete_by %></td>
+          <td>
+            <% if chore.student != nil %>
+              <%= chore.student.full_name %>
+            <% else %>
+              OPEN!
+            <% end %>
+          </td>
+          <td><%= chore.task_haver.full_name %></td>
+          <td>
+            <%= form_tag(chore_url(chore), method: 'patch', class: 'form-horizontal') do %>
+                  <%= hidden_field_tag :task_haver_id, chore.task_haver_id %>
+                  <%= select_tag :student_id, options_from_collection_for_select(Student.all, :id, :first_name, chore.student_id) %>
+                  <%= hidden_field_tag :type_of_chore_id, chore.type_of_chore_id %>
+                  <%= hidden_field_tag :description_of_chore, chore.description_of_chore %>
+                  <%= hidden_field_tag :review_of_student, chore.review_of_student %>
+                  <%= hidden_field_tag :review_of_task_haver, chore.review_of_task_haver %>
+                  <%= hidden_field_tag :ask_price, chore.ask_price %>
+                  <%= hidden_field_tag :price, chore.ask_price %>
+                  <%= hidden_field_tag :complete_by, chore.complete_by %>
+                  <%= hidden_field_tag :active, true %>
+                  <%= submit_tag "Claim", class: 'btn btn-primary' %>
+            <% end %>
+          </td>
+
+          <td><%= link_to '<i class="fa fa-search-plus"></i>'.html_safe, chore_url(chore), class: 'btn btn-primary' %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <% else %>
+
+  <!-- Top section is for being logged in as Task_Haver -->
+
 <p><%= link_to 'Add a New Chore', new_chore_url, class: 'btn btn-primary' %></p>
 
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th>Task haver</th>
-      <th>Student</th>
-      <th>Type of chore</th>
-      <th>Description of chore</th>
-      <th>Review of student</th>
-      <th>Review of task haver</th>
-      <th>Ask price</th>
-      <th>Price</th>
-      <th>Complete by</th>
-      <th>Active</th>
-      <th>Claim this job</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @chores.each do |chore| %>
+   <table class="table table-hover">
+    <thead>
       <tr>
-        <td><%= chore.task_haver.full_name %></td>
-        <td>
-          <% if chore.student != nil %>
-            <%= chore.student.full_name %>
-          <% else %>
-            None Assigned
-          <% end %>
-        </td>
-        <td><%=  %></td>
-        <td><%= chore.type_of_chore_id %></td>
-        <td><%= chore.description_of_chore %></td>
-        <td><%= chore.review_of_student %></td>
-        <td><%= chore.review_of_task_haver %></td>
-        <td><%= chore.ask_price %></td>
-        <td><%= chore.price %></td>
-        <td><%= chore.complete_by %></td>
-        <td><%= chore.active? %></td>
-        <td>
-          <%= form_tag(chore_url(chore), method: 'patch', class: 'form-horizontal') do %>
-                <%= hidden_field_tag :task_haver_id, chore.task_haver_id %>
-                <%= select_tag :student_id, options_from_collection_for_select(Student.all, :id, :first_name, chore.student_id) %>
-                <%= hidden_field_tag :type_of_chore_id, chore.type_of_chore_id %>
-                <%= hidden_field_tag :description_of_chore, chore.description_of_chore %>
-                <%= hidden_field_tag :review_of_student, chore.review_of_student %>
-                <%= hidden_field_tag :review_of_task_haver, chore.review_of_task_haver %>
-                <%= hidden_field_tag :ask_price, chore.ask_price %>
-                <%= hidden_field_tag :price, chore.price %>
-                <%= hidden_field_tag :complete_by, chore.complete_by %>
-                <%= hidden_field_tag :active, true %>
-                <%= submit_tag "Claim", class: 'btn btn-primary' %>
-          <% end %>
-        </td>
-
-        <td><%= link_to '<i class="fa fa-search-plus"></i>'.html_safe, chore_url(chore), class: 'btn btn-primary' %></td>
-        <td><%= link_to '<i class="fa fa-edit"></i>'.html_safe, edit_chore_url(chore), class: 'btn btn-warning' %></td>
-        <td><%= link_to '<i class="fa fa-trash-o"></i>'.html_safe, chore_url(chore), method: 'delete', data: { confirm: "Do you really want to delete this chore?" }, class: 'btn btn-danger' %></td>
+        <th>Task haver</th>
+        <th>Student</th>
+        <th>Type of chore</th>
+        <th>Description of chore</th>
+        <th>Review of student</th>
+        <th>Review of task haver</th>
+        <th>Ask price</th>
+        <th>Price</th>
+        <th>Complete by</th>
+        <th>Active</th>
+        <th>Claim this job</th>
+        <th></th>
+        <th></th>
+        <th></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+
+    <tbody>
+      <% @chores.each do |chore| %>
+        <tr>
+          <td><%= chore.task_haver.full_name %></td>
+          <td>
+            <% if chore.student != nil %>
+              <%= chore.student.full_name %>
+            <% else %>
+              None Assigned
+            <% end %>
+          </td>
+
+          <td><%= chore.type_of_chore_id %></td>
+          <td><%= chore.description_of_chore %></td>
+          <td><%= chore.review_of_student %></td>
+          <td><%= chore.review_of_task_haver %></td>
+          <td><%= chore.ask_price %></td>
+          <td><%= chore.price %></td>
+          <td><%= chore.complete_by %></td>
+          <td><%= chore.active? %></td>
+          <td>
+            <%= form_tag(chore_url(chore), method: 'patch', class: 'form-horizontal') do %>
+                  <%= hidden_field_tag :task_haver_id, chore.task_haver_id %>
+                  <%= select_tag :student_id, options_from_collection_for_select(Student.all, :id, :first_name, chore.student_id) %>
+                  <%= hidden_field_tag :type_of_chore_id, chore.type_of_chore_id %>
+                  <%= hidden_field_tag :description_of_chore, chore.description_of_chore %>
+                  <%= hidden_field_tag :review_of_student, chore.review_of_student %>
+                  <%= hidden_field_tag :review_of_task_haver, chore.review_of_task_haver %>
+                  <%= hidden_field_tag :ask_price, chore.ask_price %>
+                  <%= hidden_field_tag :price, chore.ask_price %>
+                  <%= hidden_field_tag :complete_by, chore.complete_by %>
+                  <%= hidden_field_tag :active, true %>
+                  <%= submit_tag "Claim", class: 'btn btn-primary' %>
+            <% end %>
+          </td>
+
+          <td><%= link_to '<i class="fa fa-search-plus"></i>'.html_safe, chore_url(chore), class: 'btn btn-primary' %></td>
+          <td><%= link_to '<i class="fa fa-edit"></i>'.html_safe, edit_chore_url(chore), class: 'btn btn-warning' %></td>
+          <td><%= link_to '<i class="fa fa-trash-o"></i>'.html_safe, chore_url(chore), method: 'delete', data: { confirm: "Do you really want to delete this chore?" }, class: 'btn btn-danger' %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <% end %>
 
