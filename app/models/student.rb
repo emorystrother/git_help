@@ -10,4 +10,11 @@ def full_name
     return first_name + " " + last_name
   end
 
+validates :first_name, :presence => true
+validates :last_name, :presence => true
+validates :address, :presence => true
+validates :cell_phone, :presence => true, :numericality => true, :uniqueness => true
+validates :nu_email, :uniqueness => true
+validates :student_id, :presence => true, :numericality => true, :uniqueness => true
+
 end
