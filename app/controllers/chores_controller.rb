@@ -42,10 +42,10 @@ class ChoresController < ApplicationController
     if @chore.save
       redirect_to chores_url, notice: "Chore created successfully."
     else
-
       render 'new'
     end
   end
+
 
   def edit
     @chore = Chore.find_by(id: params[:id])
