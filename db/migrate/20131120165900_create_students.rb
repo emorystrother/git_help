@@ -1,23 +1,13 @@
-class DeviseCreateStudents < ActiveRecord::Migration
-  def self.up
-    create_table(:students) do |t|
-      t.database_authenticatable :null => false
-      t.confirmable
-      t.recoverable
-      t.rememberable
-      t.trackable
-      # t.lockable :lock_strategy => :failed_attempts, :unlock_strategy => :both
-
-      t.timestamps
+class CreateStudents < ActiveRecord::Migration
+  def change
+    create_table :students do |t|
+      t.string :first_name
+      t.string :last_name
+      t.string :address
+      t.string :image
+      t.string :nu_email
+      t.string :cell_phone
+      t.string :student_id
     end
-
-    add_index :students, :email,                :unique => true
-    add_index :students, :confirmation_token,   :unique => true
-    add_index :students, :reset_password_token, :unique => true
-    # add_index :students, :unlock_token,         :unique => true
-  end
-
-  def self.down
-    drop_table :students
   end
 end
