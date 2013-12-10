@@ -16,6 +16,9 @@ def full_name
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of 21435be... RaghuMeetingTake2!
 =======
 >>>>>>> parent of 21435be... RaghuMeetingTake2!
 validates :first_name, :presence => true
@@ -25,6 +28,7 @@ validates :cell_phone, :presence => true, :numericality => true, :uniqueness => 
 validates :nu_email, :uniqueness => true
 validates :student_id, :presence => true, :numericality => true, :uniqueness => true
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 #validates :first_name, :presence => true
 #validates :last_name, :presence => true
@@ -33,6 +37,8 @@ validates :student_id, :presence => true, :numericality => true, :uniqueness => 
 validates :nu_email, :uniqueness => true
 #validates :student_id, :presence => true, :numericality => true, :uniqueness => true
 >>>>>>> parent of c2b5630... Merge branch 'master' of https://github.com/emorystrother/git_help
+=======
+>>>>>>> parent of 21435be... RaghuMeetingTake2!
 =======
 >>>>>>> parent of 21435be... RaghuMeetingTake2!
 
