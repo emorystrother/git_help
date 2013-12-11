@@ -64,8 +64,11 @@ class ChoresController < ApplicationController
     @chore.complete_by = params[:complete_by]
     @chore.active = params[:active]
 
+    #@chore_type_histories =
+
     if @chore.save
-      redirect_to chores_url, notice: "Chore updated successfully."
+      #tried to make this redirect to chore_type_history to link many-to-many, but couldnt get to work
+      redirect_to chores_url, method: 'post', notice: "Chore updated successfully."
     else
       render 'edit'
     end

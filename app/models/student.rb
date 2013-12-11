@@ -14,6 +14,10 @@ def full_name
     return first_name + " " + last_name
   end
 
+def chore_type_history
+  return ChoreTypeHistories.where(:student_id => id)
+end
+
 # validates :first_name, :presence => true
 # validates :last_name, :presence => true
 # validates :address, :presence => true

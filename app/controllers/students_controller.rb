@@ -18,10 +18,7 @@ class StudentsController < ApplicationController
     @student.last_name = params[:last_name]
     @student.address = params[:address]
     @student.image = params[:image]
-    @student.nu_email = params[:email]
     @student.cell_phone = params[:cell_phone]
-    @student.student_id = params[:student_id]
-    @student.password = params[:password]
 
     if @student.save
       redirect_to chores_url, notice: "Student created successfully."
@@ -40,12 +37,11 @@ class StudentsController < ApplicationController
     @student.last_name = params[:last_name]
     @student.address = params[:address]
     @student.image = params[:image]
-    @student.nu_email = params[:nu_email]
     @student.cell_phone = params[:cell_phone]
     @student.student_id = params[:student_id]
 
     if @student.save
-      redirect_to students_url, notice: "Student updated successfully."
+      redirect_to chores_url, notice: "Student updated successfully."
     else
       render 'edit'
     end

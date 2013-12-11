@@ -1,6 +1,7 @@
 GitHelp::Application.routes.draw do
   devise_for :task_havers
   devise_for :students
+
   # get '/', controller: 'landing', action: 'home', as: 'root'
   root 'landing#home'
 

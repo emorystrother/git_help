@@ -7,8 +7,7 @@
 <table class="table table-hover">
   <thead>
     <tr>
-      <th>First name</th>
-      <th>Last name</th>
+      <th>Name</th>
       <th>Address</th>
       <th>Image</th>
       <th>Email</th>
@@ -22,10 +21,9 @@
   <tbody>
     <% @task_havers.each do |task_haver| %>
       <tr>
-        <td><%= task_haver.first_name %></td>
-        <td><%= task_haver.last_name %></td>
+        <td><%= task_haver.full_name %></td>
         <td><%= task_haver.address %></td>
-        <td><%= task_haver.image %></td>
+        <td><%= image_tag task_haver.image, width: 100 %></td>
         <td><%= task_haver.email %></td>
         <td><%= task_haver.cell_phone %></td>
         <td><%= link_to '<i class="fa fa-search-plus"></i>'.html_safe, task_haver_url(task_haver), class: 'btn btn-primary' %></td>

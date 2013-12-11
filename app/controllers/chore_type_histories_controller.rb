@@ -1,7 +1,7 @@
 class ChoreTypeHistoriesController < ApplicationController
 
   def index
-    @chore_type_histories = ChoreTypeHistory.all
+     @chore_type_histories = ChoreTypeHistory.all
   end
 
   def show
@@ -13,11 +13,11 @@ class ChoreTypeHistoriesController < ApplicationController
 
   def create
     @chore_type_history = ChoreTypeHistory.new
-    @chore_type_history.student = params[:student]
-    @chore_type_history.type_of_chore = params[:type_of_chore]
+    @chore_type_history.student_id = params[:student_id]
+    @chore_type_history.type_of_chore_id = params[:type_of_chore_id]
 
     if @chore_type_history.save
-      redirect_to chore_type_histories_url, notice: "Chore type history created successfully."
+      redirect_to chores_url, notice: "Chore type history created successfully."
     else
       render 'new'
     end
@@ -29,8 +29,8 @@ class ChoreTypeHistoriesController < ApplicationController
 
   def update
     @chore_type_history = ChoreTypeHistory.find_by(id: params[:id])
-    @chore_type_history.student = params[:student]
-    @chore_type_history.type_of_chore = params[:type_of_chore]
+    @chore_type_history.student_id = params[:student_id]
+    @chore_type_history.type_of_chore_id = params[:type_of_chore_id]
 
     if @chore_type_history.save
       redirect_to chore_type_histories_url, notice: "Chore type history updated successfully."

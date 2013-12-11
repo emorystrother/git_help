@@ -1,13 +1,49 @@
 <h1>Welcome to Git Help!</h1>
 
-<div>
-  <%= link_to("Post a Chore", new_chore_url) %>
-</div>
+<!-- Is a student signed in? -->
+<% if student_signed_in? %>
+
+  <!-- Has he/she completed his/her registration? -->
+
+  <!-- Yes -->
+  <% if current_student.first_name.present? %>
+    <div>
+      <%= link_to("I'm a Northwestern student, show me the work!", chores_url) %>
+    </div>
+  <!-- No -->
+  <% else %>
+      <%= link_to("Please complete your registration, so we can git you work!", edit_student_url(current_student.id)) %>
+  <% end %>
+
+<!-- Is a TaskHaver signed in? -->
+
+<% elsif task_haver_signed_in? %>
+
+  <!-- Has he/she completed his/her registration? -->
+
+  <!-- Yes -->
+  <% if current_task_haver.first_name.present? %>
+    <div>
+      <%= link_to("I'm an area resdient and I'd like to hire Northwestern students", chores_url) %>
+    </div>
+  <!-- No -->
+  <% else %>
+      <%= link_to("Please complete your registration, so we can git you help!", edit_task_haver_url(current_task_haver.id)) %>
+  <% end %>
+
+<% else %>
+
+<!-- No one is signed-in -->
 
 <div>
-  <%= link_to("I'm a Northwestern student and I'd like to work", new_student_url) %>
+  Sign up/in as a Northwestern Student to give help and get paid!
 </div>
+    <li><%= link_to "Sign Up As Student", new_student_registration_path %></li>
+    <li><%= link_to "Sign In As Student", new_student_session_path %></li>
 
 <div>
- <%= link_to("I'm an area resdient and I'd like to hire Northwestern students", new_task_haver_url) %>
+  Sign up as a Northwestern Student to give help and get paid!
 </div>
+    <li><%= link_to "Sign Up As TaskHaver", new_task_haver_registration_path %></li>
+    <li><%= link_to "Sign In As TaskHaver", new_task_haver_session_path %></li>
+<% end %>

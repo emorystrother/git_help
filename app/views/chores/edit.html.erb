@@ -1,5 +1,5 @@
 <div class="page-header">
-  <h1>Editing Chore: <%= @chore.type_of_chore.name%> (<%= @chore.student.full_name %>)</h1>
+  <h1>Editing Chore: <%= @chore.type_of_chore.name%> (<%= @chore.task_haver.full_name %>)</h1>
 </div>
 
 <%= form_tag(chore_url(@chore), method: 'patch', class: 'form-horizontal') do %>
@@ -40,7 +40,11 @@
   <div class="form-group">
     <%= label_tag :review_of_student, nil, class: 'col-md-2 control-label' %>
     <div class="col-md-6">
+    <% if @chore.student.present? == true %>
       <%= text_field_tag :review_of_student, @chore.review_of_student, class: 'form-control' %>
+    <% else %>
+      <%= text_field_tag :review_of_student, @chore.review_of_student, disabled: true, class: 'form-control' %>
+    <% end %>
     </div>
   </div>
 
@@ -55,7 +59,7 @@
   <div class="form-group">
     <%= label_tag :price, nil, class: 'col-md-2 control-label' %>
     <div class="col-md-6">
-      <%= text_field_tag :price, @chore.price, class: 'form-control' %>
+      <%= text_field_tag :price, @chore.price, disabled: true, class: 'form-control' %>
     </div>
   </div>
 
@@ -74,7 +78,7 @@
   <div class="form-group">
     <%= label_tag :active, 'Accepted', class: 'col-md-2 control-label' %>
     <div class="col-md-6">
-      <%= check_box_tag :active, 1, @chore.active? %>
+      <%= check_box_tag :active, 1, @chore.active?, disabled: true %>
     </div>
   </div>
 

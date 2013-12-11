@@ -43,7 +43,7 @@ class TaskHaversController < ApplicationController
     @task_haver.cell_phone = params[:cell_phone]
 
     if @task_haver.save
-      redirect_to task_havers_url, notice: "Task haver updated successfully."
+      redirect_to chores_url, notice: "Task haver updated successfully."
     else
       render 'edit'
     end
